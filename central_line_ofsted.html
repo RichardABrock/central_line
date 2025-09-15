@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Richard Brock">
+
+<title>Central Line</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="central_line_ofsted_files/libs/clipboard/clipboard.min.js"></script>
+<script src="central_line_ofsted_files/libs/quarto-html/quarto.js"></script>
+<script src="central_line_ofsted_files/libs/quarto-html/popper.min.js"></script>
+<script src="central_line_ofsted_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="central_line_ofsted_files/libs/quarto-html/anchor.min.js"></script>
+<link href="central_line_ofsted_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="central_line_ofsted_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="central_line_ofsted_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="central_line_ofsted_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="central_line_ofsted_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="central_line_ofsted_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<script src="central_line_ofsted_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="central_line_ofsted_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="central_line_ofsted_files/libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="central_line_ofsted_files/libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="central_line_ofsted_files/libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="central_line_ofsted_files/libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="central_line_ofsted_files/libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="central_line_ofsted_files/libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="central_line_ofsted_files/libs/leaflet-binding-2.2.3/leaflet.js"></script>
+<script src="central_line_ofsted_files/libs/leaflet-providers-2.0.0/leaflet-providers_2.0.0.js"></script>
+<script src="central_line_ofsted_files/libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Central Line</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Richard Brock </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="central-line-ofsted-reports" class="level2">
+<h2 class="anchored" data-anchor-id="central-line-ofsted-reports">Central line ofsted reports</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(leaflet)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Linking to GEOS 3.13.0, GDAL 3.8.5, PROJ 9.5.1; sf_use_s2() is TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(arrow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'arrow'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:utils':
+
+    timestamp</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.2
+✔ ggplot2   4.0.0     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.1.0     </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ lubridate::duration() masks arrow::duration()
+✖ dplyr::filter()       masks stats::filter()
+✖ dplyr::lag()          masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(<span class="st">"/Users/k1765032/Documents/Teaching/STEM MA/Quantitative module/R/tube_data/London stations.json"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>lines <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"/Users/k1765032/Documents/Teaching/STEM MA/Quantitative module/R/tube_data/Copy of Station List by line.xlsx"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>ofsted <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"/Users/k1765032/Library/CloudStorage/OneDrive-King</span><span class="sc">\'</span><span class="st">sCollegeLondon/QERKCL_PISA/data/ofsted/ofsted_reports_txt_london.parquet"</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">&lt;-</span> <span class="fu">left_join</span>(tube_stations, lines, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"name"</span> <span class="ot">=</span> <span class="st">"Station"</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">&lt;-</span> tube_stations <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Operator <span class="sc">==</span> <span class="st">"London Underground"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Line <span class="sc">==</span> <span class="st">"Central"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">colour =</span> <span class="fu">case_when</span>(Line <span class="sc">==</span> <span class="st">"Central"</span> <span class="sc">~</span> <span class="st">"red"</span>))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>main_branch <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"West Ruislip"</span>,<span class="st">"Ruislip Gardens"</span>,<span class="st">"South Ruislip"</span>,<span class="st">"Northolt"</span>,<span class="st">"Greenford"</span>,</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Perivale"</span>,<span class="st">"Hanger Lane"</span>,<span class="st">"Ealing Broadway"</span>,<span class="st">"West Acton"</span>,<span class="st">"North Acton"</span>,</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">"East Acton"</span>,<span class="st">"White City"</span>,<span class="st">"Shepherd’s Bush"</span>,<span class="st">"Holland Park"</span>,</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Notting Hill Gate"</span>,<span class="st">"Queensway"</span>,<span class="st">"Lancaster Gate"</span>,<span class="st">"Marble Arch"</span>,</span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Bond Street"</span>,<span class="st">"Oxford Circus"</span>,<span class="st">"Tottenham Court Road"</span>,<span class="st">"Holborn"</span>,</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Chancery Lane"</span>,<span class="st">"St. Paul’s"</span>,<span class="st">"Bank"</span>,<span class="st">"Liverpool Street"</span>,<span class="st">"Bethnal Green"</span>,</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Mile End"</span>,<span class="st">"Stratford"</span>,<span class="st">"Leyton"</span>,<span class="st">"Leytonstone"</span>,<span class="st">"Snaresbrook"</span>,</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">"South Woodford"</span>,<span class="st">"Woodford"</span>,<span class="st">"Buckhurst Hill"</span>,<span class="st">"Loughton"</span>,<span class="st">"Debden"</span>,</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Theydon Bois"</span>,<span class="st">"Epping"</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>hainault_loop <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Roding Valley"</span>,<span class="st">"Chigwell"</span>,<span class="st">"Grange Hill"</span>,<span class="st">"Hainault"</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Fairlop"</span>,<span class="st">"Barkingside"</span>,<span class="st">"Newbury Park"</span>,<span class="st">"Gants Hill"</span>,<span class="st">"Redbridge"</span>,<span class="st">"Wanstead"</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Main branch line</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>tube_line_main <span class="ot">&lt;-</span> tube_stations <span class="sc">%&gt;%</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">%in%</span> main_branch) <span class="sc">%&gt;%</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">match</span>(name, main_branch)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(order) <span class="sc">%&gt;%</span></span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">geometry =</span> <span class="fu">st_sfc</span>(<span class="fu">st_linestring</span>(<span class="fu">st_coordinates</span>(.))),</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Hainault loop line</span></span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>tube_line_loop <span class="ot">&lt;-</span> tube_stations <span class="sc">%&gt;%</span></span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name <span class="sc">%in%</span> hainault_loop) <span class="sc">%&gt;%</span></span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">order =</span> <span class="fu">match</span>(name, hainault_loop)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(order) <span class="sc">%&gt;%</span></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">geometry =</span> <span class="fu">st_sfc</span>(<span class="fu">st_linestring</span>(<span class="fu">st_coordinates</span>(.))),</span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-53"><a href="#cb9-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-54"><a href="#cb9-54" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine</span></span>
+<span id="cb9-55"><a href="#cb9-55" aria-hidden="true" tabindex="-1"></a>tube_lines <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb9-56"><a href="#cb9-56" aria-hidden="true" tabindex="-1"></a>  tube_line_main <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">"Main"</span>),</span>
+<span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a>  tube_line_loop <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">branch =</span> <span class="st">"Hainault loop"</span>)</span>
+<span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-59"><a href="#cb9-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-60"><a href="#cb9-60" aria-hidden="true" tabindex="-1"></a><span class="co"># convert ofsted coords:</span></span>
+<span id="cb9-61"><a href="#cb9-61" aria-hidden="true" tabindex="-1"></a>ofsted <span class="ot">&lt;-</span> ofsted <span class="sc">%&gt;%</span></span>
+<span id="cb9-62"><a href="#cb9-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-63"><a href="#cb9-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"easting"</span>, <span class="st">"northing"</span>), <span class="at">crs =</span> <span class="dv">27700</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-64"><a href="#cb9-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">4326</span>)</span>
+<span id="cb9-65"><a href="#cb9-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-66"><a href="#cb9-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-67"><a href="#cb9-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-68"><a href="#cb9-68" aria-hidden="true" tabindex="-1"></a><span class="co"># Only plot schools close to central line</span></span>
+<span id="cb9-69"><a href="#cb9-69" aria-hidden="true" tabindex="-1"></a>x_miles <span class="ot">&lt;-</span> <span class="dv">2</span>   <span class="co"># example</span></span>
+<span id="cb9-70"><a href="#cb9-70" aria-hidden="true" tabindex="-1"></a>buffer <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(tube_stations, <span class="at">dist =</span> x_miles <span class="sc">*</span> <span class="fl">1609.34</span>)</span>
+<span id="cb9-71"><a href="#cb9-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-72"><a href="#cb9-72" aria-hidden="true" tabindex="-1"></a><span class="co"># make ofsted_sf</span></span>
+<span id="cb9-73"><a href="#cb9-73" aria-hidden="true" tabindex="-1"></a>ofsted_sf <span class="ot">&lt;-</span> <span class="fu">st_as_sf</span>(</span>
+<span id="cb9-74"><a href="#cb9-74" aria-hidden="true" tabindex="-1"></a>  ofsted, </span>
+<span id="cb9-75"><a href="#cb9-75" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"easting"</span>, <span class="st">"northing"</span>),  <span class="co"># the two columns in your df</span></span>
+<span id="cb9-76"><a href="#cb9-76" aria-hidden="true" tabindex="-1"></a>  <span class="at">crs =</span> <span class="dv">27700</span>                          <span class="co"># EPSG code for BNG</span></span>
+<span id="cb9-77"><a href="#cb9-77" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-78"><a href="#cb9-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-79"><a href="#cb9-79" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter Ofsted schools within that buffer</span></span>
+<span id="cb9-80"><a href="#cb9-80" aria-hidden="true" tabindex="-1"></a>ofsted_near <span class="ot">&lt;-</span> ofsted_sf <span class="sc">%&gt;%</span></span>
+<span id="cb9-81"><a href="#cb9-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_filter</span>(buffer, <span class="at">.predicate =</span> st_within)</span>
+<span id="cb9-82"><a href="#cb9-82" aria-hidden="true" tabindex="-1"></a><span class="co">#Transform back to WGS84 for leaflet</span></span>
+<span id="cb9-83"><a href="#cb9-83" aria-hidden="true" tabindex="-1"></a>ofsted_near <span class="ot">&lt;-</span> <span class="fu">st_transform</span>(ofsted_near, <span class="dv">4326</span>)</span>
+<span id="cb9-84"><a href="#cb9-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-85"><a href="#cb9-85" aria-hidden="true" tabindex="-1"></a><span class="co"># Define grade levels and palette</span></span>
+<span id="cb9-86"><a href="#cb9-86" aria-hidden="true" tabindex="-1"></a>grade_levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"other"</span>, <span class="st">"requires improvement"</span>, <span class="st">"inadequate"</span>, </span>
+<span id="cb9-87"><a href="#cb9-87" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"satisfactory"</span>, <span class="st">"good"</span>, <span class="st">"outstanding"</span>)</span>
+<span id="cb9-88"><a href="#cb9-88" aria-hidden="true" tabindex="-1"></a>grade_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"grey"</span>, <span class="st">"brown"</span>, <span class="st">"brown"</span>, <span class="st">"orange"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>)</span>
+<span id="cb9-89"><a href="#cb9-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-90"><a href="#cb9-90" aria-hidden="true" tabindex="-1"></a><span class="co"># Make sure 'grade' is a factor with the correct order</span></span>
+<span id="cb9-91"><a href="#cb9-91" aria-hidden="true" tabindex="-1"></a>ofsted_sf<span class="sc">$</span>grade <span class="ot">&lt;-</span> <span class="fu">factor</span>(ofsted_sf<span class="sc">$</span>grade, <span class="at">levels =</span> grade_levels)</span>
+<span id="cb9-92"><a href="#cb9-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-93"><a href="#cb9-93" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the color palette with explicit ordering</span></span>
+<span id="cb9-94"><a href="#cb9-94" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">colorFactor</span>(<span class="at">palette =</span> grade_palette, <span class="at">domain =</span> grade_levels, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-95"><a href="#cb9-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-96"><a href="#cb9-96" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the same ordered levels for legend</span></span>
+<span id="cb9-97"><a href="#cb9-97" aria-hidden="true" tabindex="-1"></a>legend_values <span class="ot">&lt;-</span> grade_levels</span>
+<span id="cb9-98"><a href="#cb9-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-99"><a href="#cb9-99" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-100"><a href="#cb9-100" aria-hidden="true" tabindex="-1"></a><span class="co"># leaflet</span></span>
+<span id="cb9-101"><a href="#cb9-101" aria-hidden="true" tabindex="-1"></a><span class="fu">leaflet</span>(tube_stations) <span class="sc">%&gt;%</span></span>
+<span id="cb9-102"><a href="#cb9-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addProviderTiles</span>(<span class="st">"Stadia.StamenToner"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-103"><a href="#cb9-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(</span>
+<span id="cb9-104"><a href="#cb9-104" aria-hidden="true" tabindex="-1"></a>    <span class="at">radius =</span> <span class="dv">6</span>,</span>
+<span id="cb9-105"><a href="#cb9-105" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="sc">~</span>colour, </span>
+<span id="cb9-106"><a href="#cb9-106" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-107"><a href="#cb9-107" aria-hidden="true" tabindex="-1"></a>    <span class="at">fillOpacity =</span> <span class="fl">0.8</span>,</span>
+<span id="cb9-108"><a href="#cb9-108" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste0</span>(<span class="st">"&lt;b&gt;"</span>, name, <span class="st">"&lt;/b&gt;&lt;br/&gt;"</span>,</span>
+<span id="cb9-109"><a href="#cb9-109" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Zone: "</span>, zone, <span class="st">"&lt;br/&gt;"</span>,</span>
+<span id="cb9-110"><a href="#cb9-110" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"Postcode: "</span>, postcode, <span class="st">"&lt;br/&gt;"</span>,</span>
+<span id="cb9-111"><a href="#cb9-111" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"&lt;a href='"</span>, link, <span class="st">"' target='_blank'&gt;Link&lt;/a&gt;"</span>),</span>
+<span id="cb9-112"><a href="#cb9-112" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="sc">~</span>name</span>
+<span id="cb9-113"><a href="#cb9-113" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-114"><a href="#cb9-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addPolylines</span>(<span class="at">data =</span> tube_lines, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">weight =</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-115"><a href="#cb9-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addCircleMarkers</span>(</span>
+<span id="cb9-116"><a href="#cb9-116" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> ofsted_near,</span>
+<span id="cb9-117"><a href="#cb9-117" aria-hidden="true" tabindex="-1"></a>    <span class="at">radius =</span> <span class="dv">6</span>,</span>
+<span id="cb9-118"><a href="#cb9-118" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="sc">~</span><span class="fu">pal</span>(<span class="fu">as.character</span>(grade)),  </span>
+<span id="cb9-119"><a href="#cb9-119" aria-hidden="true" tabindex="-1"></a>    <span class="at">stroke =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-120"><a href="#cb9-120" aria-hidden="true" tabindex="-1"></a>    <span class="at">fillOpacity =</span> <span class="dv">1</span>,</span>
+<span id="cb9-121"><a href="#cb9-121" aria-hidden="true" tabindex="-1"></a>    <span class="at">popup =</span> <span class="sc">~</span><span class="fu">paste0</span>(<span class="st">"&lt;b&gt;"</span>, name, <span class="st">"&lt;/b&gt;&lt;br/&gt;Grade: "</span>, grade)</span>
+<span id="cb9-122"><a href="#cb9-122" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-123"><a href="#cb9-123" aria-hidden="true" tabindex="-1"></a>  <span class="fu">addLegend</span>(</span>
+<span id="cb9-124"><a href="#cb9-124" aria-hidden="true" tabindex="-1"></a>    <span class="st">"bottomright"</span>,</span>
+<span id="cb9-125"><a href="#cb9-125" aria-hidden="true" tabindex="-1"></a>    <span class="at">pal =</span> pal,</span>
+<span id="cb9-126"><a href="#cb9-126" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">factor</span>(legend_values, <span class="at">levels =</span> grade_levels),  </span>
+<span id="cb9-127"><a href="#cb9-127" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Ofsted Grade"</span>,</span>
+<span id="cb9-128"><a href="#cb9-128" aria-hidden="true" tabindex="-1"></a>    <span class="at">opacity =</span> <span class="dv">1</span></span>
+<span id="cb9-129"><a href="#cb9-129" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-93bdde2d7d3ff3a994f9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-93bdde2d7d3ff3a994f9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Stadia.StamenToner",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addCircleMarkers","args":[[51.58585076146283,51.52719165312212,51.62657674004732,51.51849383581987,51.61785799974183,51.64549214152591,51.51626301045364,51.69368635497796,51.59610969417489,51.57655306294169,51.61348057933538,51.54197950701463,51.60284548375225,51.5300715563412,51.51723554139566,51.50714614814041,51.51189065832833,51.55813226231266,51.56852230672617,51.64157057082802,51.51396523465938,51.57563850646377,51.52343200460989,51.54821230018008,51.50937501801177,51.53634129467288,51.51044892854765,51.5763669943606,51.61695652081232,51.55995951052218,51.58089131157066,51.55688965147795,51.59155266475493,51.67255225418,51.57490219957086,51.51776969314101,51.56958715703546,51.51223207227981,51.5096578296917,51.60720190279034],[0.08847664010592626,-0.05539211145016204,0.04671254142876922,-0.1119620267624171,0.07617921535230276,0.08380147525632461,-0.2481122212813141,0.1138255535142122,0.0905932799159299,0.06608409806317944,0.09227253016869208,-0.3458787331310219,0.09410855083015249,-0.2929961405571649,-0.1198405066029367,-0.2065577754123285,-0.1754299267897916,-0.006465331580603041,0.009140451957061277,0.05527907928744789,-0.1585712147927576,0.09030315819789672,-0.2597295239222282,-0.3684405875976204,-0.1959216162263909,-0.3230704159011666,-0.1874199010483689,0.0453940440870774,0.04402620712663845,-0.4092941013740339,0.02146392781075505,-0.3991159010068219,0.02794307837440943,0.1028907368816819,0.02876047243622503,-0.2806571709044868,-0.4378601343740381,-0.2246319285152728,-0.2244726057099385,0.03405620241662596],6,null,null,{"interactive":true,"className":"","stroke":true,"color":["red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red","red"],"fillOpacity":0.8},null,null,["<b>Barkingside<\/b><br/>Zone: 4<br/>Postcode: IG6 1NB<br/><a href='https://www.doogal.co.uk/StationMap?station=Barkingside' target='_blank'>Link<\/a>","<b>Bethnal Green<\/b><br/>Zone: 2<br/>Postcode: E2 0ET<br/><a href='https://www.doogal.co.uk/StationMap?station=Bethnal%20Green' target='_blank'>Link<\/a>","<b>Buckhurst Hill<\/b><br/>Zone: 5<br/>Postcode: IG9 5ET<br/><a href='https://www.doogal.co.uk/StationMap?station=Buckhurst%20Hill' target='_blank'>Link<\/a>","<b>Chancery Lane<\/b><br/>Zone: 1<br/>Postcode: WC1V 6DR<br/><a href='https://www.doogal.co.uk/StationMap?station=Chancery%20Lane' target='_blank'>Link<\/a>","<b>Chigwell<\/b><br/>Zone: 4<br/>Postcode: IG7 6NT<br/><a href='https://www.doogal.co.uk/StationMap?station=Chigwell' target='_blank'>Link<\/a>","<b>Debden<\/b><br/>Zone: 6<br/>Postcode: IG10 3TG<br/><a href='https://www.doogal.co.uk/StationMap?station=Debden' target='_blank'>Link<\/a>","<b>East Acton<\/b><br/>Zone: 2<br/>Postcode: W12 0BP<br/><a href='https://www.doogal.co.uk/StationMap?station=East%20Acton' target='_blank'>Link<\/a>","<b>Epping<\/b><br/>Zone: 6<br/>Postcode: CM16 4HW<br/><a href='https://www.doogal.co.uk/StationMap?station=Epping' target='_blank'>Link<\/a>","<b>Fairlop<\/b><br/>Zone: 4<br/>Postcode: IG6 3HD<br/><a href='https://www.doogal.co.uk/StationMap?station=Fairlop' target='_blank'>Link<\/a>","<b>Gants Hill<\/b><br/>Zone: 4<br/>Postcode: IG2 6UD<br/><a href='https://www.doogal.co.uk/StationMap?station=Gants%20Hill' target='_blank'>Link<\/a>","<b>Grange Hill<\/b><br/>Zone: 4<br/>Postcode: IG7 5QB<br/><a href='https://www.doogal.co.uk/StationMap?station=Grange%20Hill' target='_blank'>Link<\/a>","<b>Greenford<\/b><br/>Zone: 4<br/>Postcode: UB6 8PR<br/><a href='https://www.doogal.co.uk/StationMap?station=Greenford' target='_blank'>Link<\/a>","<b>Hainault<\/b><br/>Zone: 4<br/>Postcode: IG6 3BD<br/><a href='https://www.doogal.co.uk/StationMap?station=Hainault' target='_blank'>Link<\/a>","<b>Hanger Lane<\/b><br/>Zone: 3<br/>Postcode: W5 1DL<br/><a href='https://www.doogal.co.uk/StationMap?station=Hanger%20Lane' target='_blank'>Link<\/a>","<b>Holborn<\/b><br/>Zone: 1<br/>Postcode: WC2B 6AA<br/><a href='https://www.doogal.co.uk/StationMap?station=Holborn' target='_blank'>Link<\/a>","<b>Holland Park<\/b><br/>Zone: 2<br/>Postcode: W11 3RB<br/><a href='https://www.doogal.co.uk/StationMap?station=Holland%20Park' target='_blank'>Link<\/a>","<b>Lancaster Gate<\/b><br/>Zone: 1<br/>Postcode: W2 4QH<br/><a href='https://www.doogal.co.uk/StationMap?station=Lancaster%20Gate' target='_blank'>Link<\/a>","<b>Leyton<\/b><br/>Zone: 3<br/>Postcode: E10 5PS<br/><a href='https://www.doogal.co.uk/StationMap?station=Leyton' target='_blank'>Link<\/a>","<b>Leytonstone<\/b><br/>Zone: 3,4<br/>Postcode: E11 1HE<br/><a href='https://www.doogal.co.uk/StationMap?station=Leytonstone' target='_blank'>Link<\/a>","<b>Loughton<\/b><br/>Zone: 6<br/>Postcode: IG10 4PD<br/><a href='https://www.doogal.co.uk/StationMap?station=Loughton' target='_blank'>Link<\/a>","<b>Marble Arch<\/b><br/>Zone: 1<br/>Postcode: W1C 2JS<br/><a href='https://www.doogal.co.uk/StationMap?station=Marble%20Arch' target='_blank'>Link<\/a>","<b>Newbury Park<\/b><br/>Zone: 4<br/>Postcode: IG2 7RN<br/><a href='https://www.doogal.co.uk/StationMap?station=Newbury%20Park' target='_blank'>Link<\/a>","<b>North Acton<\/b><br/>Zone: 2,3<br/>Postcode: W3 6UP<br/><a href='https://www.doogal.co.uk/StationMap?station=North%20Acton' target='_blank'>Link<\/a>","<b>Northolt<\/b><br/>Zone: 5<br/>Postcode: UB5 4AA<br/><a href='https://www.doogal.co.uk/StationMap?station=Northolt' target='_blank'>Link<\/a>","<b>Notting Hill Gate<\/b><br/>Zone: 1,2<br/>Postcode: W11 3HT<br/><a href='https://www.doogal.co.uk/StationMap?station=Notting%20Hill%20Gate' target='_blank'>Link<\/a>","<b>Perivale<\/b><br/>Zone: 4<br/>Postcode: UB6 7NP<br/><a href='https://www.doogal.co.uk/StationMap?station=Perivale' target='_blank'>Link<\/a>","<b>Queensway<\/b><br/>Zone: 1<br/>Postcode: W2 4SS<br/><a href='https://www.doogal.co.uk/StationMap?station=Queensway' target='_blank'>Link<\/a>","<b>Redbridge<\/b><br/>Zone: 4<br/>Postcode: IG4 5BG<br/><a href='https://www.doogal.co.uk/StationMap?station=Redbridge' target='_blank'>Link<\/a>","<b>Roding Valley<\/b><br/>Zone: 4<br/>Postcode: IG9 6LN<br/><a href='https://www.doogal.co.uk/StationMap?station=Roding%20Valley' target='_blank'>Link<\/a>","<b>Ruislip Gardens<\/b><br/>Zone: 5<br/>Postcode: HA4 6LG<br/><a href='https://www.doogal.co.uk/StationMap?station=Ruislip%20Gardens' target='_blank'>Link<\/a>","<b>Snaresbrook<\/b><br/>Zone: 4<br/>Postcode: E11 1QE<br/><a href='https://www.doogal.co.uk/StationMap?station=Snaresbrook' target='_blank'>Link<\/a>","<b>South Ruislip<\/b><br/>Zone: 5<br/>Postcode: HA4 6TP<br/><a href='https://www.doogal.co.uk/StationMap?station=South%20Ruislip' target='_blank'>Link<\/a>","<b>South Woodford<\/b><br/>Zone: 4<br/>Postcode: E18 1JJ<br/><a href='https://www.doogal.co.uk/StationMap?station=South%20Woodford' target='_blank'>Link<\/a>","<b>Theydon Bois<\/b><br/>Zone: 6<br/>Postcode: CM16 7EU<br/><a href='https://www.doogal.co.uk/StationMap?station=Theydon%20Bois' target='_blank'>Link<\/a>","<b>Wanstead<\/b><br/>Zone: 4<br/>Postcode: E11 2NT<br/><a href='https://www.doogal.co.uk/StationMap?station=Wanstead' target='_blank'>Link<\/a>","<b>West Acton<\/b><br/>Zone: 3<br/>Postcode: W3 6UP<br/><a href='https://www.doogal.co.uk/StationMap?station=West%20Acton' target='_blank'>Link<\/a>","<b>West Ruislip<\/b><br/>Zone: 6<br/>Postcode: HA4 7WD<br/><a href='https://www.doogal.co.uk/StationMap?station=West%20Ruislip' target='_blank'>Link<\/a>","<b>White City<\/b><br/>Zone: 2<br/>Postcode: W12 7RH<br/><a href='https://www.doogal.co.uk/StationMap?station=White%20City' target='_blank'>Link<\/a>","<b>Wood Lane<\/b><br/>Zone: 2<br/>Postcode: W12 7DS<br/><a href='https://www.doogal.co.uk/StationMap?station=Wood%20Lane' target='_blank'>Link<\/a>","<b>Woodford<\/b><br/>Zone: 4<br/>Postcode: IG8 7QE<br/><a href='https://www.doogal.co.uk/StationMap?station=Woodford' target='_blank'>Link<\/a>"],null,["Barkingside","Bethnal Green","Buckhurst Hill","Chancery Lane","Chigwell","Debden","East Acton","Epping","Fairlop","Gants Hill","Grange Hill","Greenford","Hainault","Hanger Lane","Holborn","Holland Park","Lancaster Gate","Leyton","Leytonstone","Loughton","Marble Arch","Newbury Park","North Acton","Northolt","Notting Hill Gate","Perivale","Queensway","Redbridge","Roding Valley","Ruislip Gardens","Snaresbrook","South Ruislip","South Woodford","Theydon Bois","Wanstead","West Acton","West Ruislip","White City","Wood Lane","Woodford"],{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addPolylines","args":[[[[{"lng":[-0.4378601343740381,-0.4092941013740339,-0.3991159010068219,-0.3684405875976204,-0.3458787331310219,-0.3230704159011666,-0.2929961405571649,-0.2806571709044868,-0.2597295239222282,-0.2481122212813141,-0.2246319285152728,-0.2065577754123285,-0.1959216162263909,-0.1874199010483689,-0.1754299267897916,-0.1585712147927576,-0.1198405066029367,-0.1119620267624171,-0.05539211145016204,-0.006465331580603041,0.009140451957061277,0.02146392781075505,0.02794307837440943,0.03405620241662596,0.04671254142876922,0.05527907928744789,0.08380147525632461,0.1028907368816819,0.1138255535142122],"lat":[51.56958715703546,51.55995951052218,51.55688965147795,51.54821230018008,51.54197950701463,51.53634129467288,51.5300715563412,51.51776969314101,51.52343200460989,51.51626301045364,51.51223207227981,51.50714614814041,51.50937501801177,51.51044892854765,51.51189065832833,51.51396523465938,51.51723554139566,51.51849383581987,51.52719165312212,51.55813226231266,51.56852230672617,51.58089131157066,51.59155266475493,51.60720190279034,51.62657674004732,51.64157057082802,51.64549214152591,51.67255225418,51.69368635497796]}]],[[{"lng":[0.04402620712663845,0.07617921535230276,0.09227253016869208,0.09410855083015249,0.0905932799159299,0.08847664010592626,0.09030315819789672,0.06608409806317944,0.0453940440870774,0.02876047243622503],"lat":[51.61695652081232,51.61785799974183,51.61348057933538,51.60284548375225,51.59610969417489,51.58585076146283,51.57563850646377,51.57655306294169,51.5763669943606,51.57490219957086]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"red","weight":6,"opacity":0.5,"fill":false,"fillColor":"red","fillOpacity":0.2,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addCircleMarkers","args":[[51.57180432948164,51.57180432948164,51.57180432948164,51.55759075702774,51.55759075702774,51.55371887244297,51.55371887244297,51.55371887244297,51.55371887244297,51.55371887244297,51.55371887244297,51.54100928803432,51.54100928803432,51.54100928803432,51.54100928803432,51.5642950022452,51.5642950022452,51.5642950022452,51.5642950022452,51.48192488708648,51.48192488708648,51.56226088141606,51.56226088141606,51.56226088141606,51.56226088141606,51.51591140804629,51.51591140804629,51.51591140804629,51.51591140804629,51.52220959173138,51.52220959173138,51.53970190040505,51.53970190040505,51.53970190040505,51.53970190040505,51.57886046133055,51.57886046133055,51.57886046133055,51.57886046133055,51.56257160218698,51.56257160218698,51.56257160218698,51.56257160218698,51.50070676759989,51.50070676759989,51.50070676759989,51.50070676759989,51.50070676759989,51.55472428535729,51.55472428535729,51.55472428535729,51.50964809372596,51.50964809372596,51.50964809372596,51.60846557253179,51.60846557253179,51.60846557253179,51.60846557253179,51.60846557253179,51.54207943826376,51.54207943826376,51.54207943826376,51.54207943826376,51.55848716493531,51.55848716493531,51.55848716493531,51.55848716493531,51.55848716493531,51.50190726924396,51.50190726924396,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.52656505001491,51.5137993417807,51.5137993417807,51.52739057969517,51.52739057969517,51.52739057969517,51.53041358879462,51.53041358879462,51.53041358879462,51.53041358879462,51.53041358879462,51.53041358879462,51.55906517946958,51.55906517946958,51.55906517946958,51.55906517946958,51.55906517946958,51.49358041661632,51.49358041661632,51.49358041661632,51.53833490538012,51.53833490538012,51.53833490538012,51.53833490538012,51.52822397267279,51.52822397267279,51.52822397267279,51.52822397267279,51.49796580973491,51.49796580973491,51.49796580973491,51.49796580973491,51.49603190493351,51.49603190493351,51.56309364113487,51.56309364113487,51.56309364113487,51.55977959678405,51.55977959678405,51.55977959678405,51.55977959678405,51.55977959678405,51.55977959678405,51.54055723073471,51.54055723073471,51.54055723073471,51.54337586555391,51.54337586555391,51.54337586555391,51.54337586555391,51.54337586555391,51.51532450876132,51.51532450876132,51.51532450876132,51.51532450876132,51.57575402165124,51.57575402165124,51.57575402165124,51.57575402165124,51.56628915168854,51.56628915168854,51.56628915168854,51.56628915168854,51.58748041675246,51.58748041675246,51.58748041675246,51.58748041675246,51.48136397595484,51.48136397595484,51.48136397595484,51.53302570861354,51.53302570861354,51.52600368001465,51.52600368001465,51.52600368001465,51.53641102596171,51.53641102596171,51.53641102596171,51.53641102596171,51.52584689303393,51.52584689303393,51.52584689303393,51.53328599749282,51.53328599749282,51.56716093087309,51.56716093087309,51.56716093087309,51.56655789677458,51.56655789677458,51.56655789677458,51.56655789677458,51.56655789677458,51.56655789677458,51.56655789677458,51.56655789677458,51.54931338926804,51.54931338926804,51.54931338926804,51.58586960849019,51.58586960849019,51.56478814919971,51.56478814919971,51.56478814919971,51.59451297724553,51.59451297724553,51.59451297724553,51.59451297724553,51.59451297724553,51.53562752841066,51.53562752841066,51.53562752841066,51.53562752841066,51.51392456667445,51.51392456667445,51.51392456667445,51.5637837740197,51.5637837740197,51.53768252372095,51.53768252372095,51.53768252372095,51.55353986500107,51.55353986500107,51.55353986500107,51.54298766398588,51.54298766398588,51.54298766398588,51.50366668157548,51.50366668157548,51.50366668157548,51.50388913212011,51.50388913212011,51.54876515974109,51.54876515974109,51.54876515974109,51.58791867618825,51.58791867618825,51.58791867618825,51.58791867618825,51.5435863324968,51.5435863324968,51.53376645005324,51.53376645005324,51.53376645005324,51.56002339867341,51.56002339867341,51.56002339867341,51.56002339867341,51.55220613664518,51.55220613664518,51.53609786153687,51.53609786153687,51.47984293225798,51.47984293225798,51.47984293225798,51.48353531869057,51.48353531869057,51.48353531869057,51.54975540054673,51.54975540054673,51.54975540054673,51.51861258507202,51.51861258507202,51.60577847476912,51.60577847476912,51.60577847476912,51.56447371132702,51.56447371132702,51.56728868839763,51.56728868839763,51.56728868839763,51.55934900219046,51.55934900219046,51.55934900219046,51.51419640261973,51.51419640261973,51.52515166043364,51.52515166043364,51.52515166043364,51.52515166043364,51.5312637982237,51.5312637982237,51.51679760980092,51.51679760980092,51.51679760980092,51.5125683288455,51.5125683288455,51.58357581335796,51.58357581335796,51.5742581124044,51.5742581124044,51.5742581124044,51.5217836901298,51.5217836901298,51.51834853390226,51.51834853390226,51.57569674827997,51.57569674827997,51.57217937235546,51.57217937235546,51.60707761556201,51.60707761556201,51.54698920309073,51.54698920309073,51.54698920309073,51.56811919205257,51.56811919205257,51.51801328480735,51.51801328480735,51.51801328480735,51.54003283748254,51.54003283748254,51.56588451605474,51.56588451605474,51.56588451605474,51.56588451605474,51.56308336643954,51.56308336643954,51.61224156964936,51.61224156964936,51.54804645152986,51.54804645152986,51.57469825736438,51.57469825736438,51.55813163850733,51.55813163850733,51.50707147392819,51.50707147392819,51.50707147392819,51.50707147392819,51.50114122226611,51.54074180567716,51.54074180567716,51.49289811085555,51.49289811085555,51.51036385613445,51.56684186632376,51.56684186632376,51.54889508292057,51.54889508292057,51.57502391395639,51.57502391395639,51.57502391395639,51.57502391395639,51.57502391395639,51.57502391395639,51.4914170052178,51.4914170052178,51.50044777235311,51.50044777235311,51.5047158454948,51.5047158454948,51.5047158454948,51.5047158454948,51.49893574018146,51.49893574018146,51.57502391395639],[0.1180657927179437,0.1180657927179437,0.1180657927179437,-0.3892385437948384,-0.3892385437948384,-0.3493907753133846,-0.3493907753133846,-0.3493907753133846,-0.3493907753133846,-0.3493907753133846,-0.3493907753133846,0.02353206058053287,0.02353206058053287,0.02353206058053287,0.02353206058053287,0.09454433293686375,0.09454433293686375,0.09454433293686375,0.09454433293686375,-0.1938365942908775,-0.1938365942908775,-0.371876409569579,-0.371876409569579,-0.371876409569579,-0.371876409569579,-0.3357399347599978,-0.3357399347599978,-0.3357399347599978,-0.3357399347599978,-0.1521699752347954,-0.1521699752347954,-0.09494787567886162,-0.09494787567886162,-0.09494787567886162,-0.09494787567886162,-0.4092548337384086,-0.4092548337384086,-0.4092548337384086,-0.4092548337384086,0.06953342218944962,0.06953342218944962,0.06953342218944962,0.06953342218944962,-0.1114148742992368,-0.1114148742992368,-0.1114148742992368,-0.1114148742992368,-0.1114148742992368,-0.05198207408883246,-0.05198207408883246,-0.05198207408883246,-0.2774899203732824,-0.2774899203732824,-0.2774899203732824,0.00293137450337854,0.00293137450337854,0.00293137450337854,0.00293137450337854,0.00293137450337854,-0.1012660291023479,-0.1012660291023479,-0.1012660291023479,-0.1012660291023479,-0.4620862980141459,-0.4620862980141459,-0.4620862980141459,-0.4620862980141459,-0.4620862980141459,-0.03667116096817803,-0.03667116096817803,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.3877387655201794,-0.03421418339716744,-0.03421418339716744,-0.0696128285332247,-0.0696128285332247,-0.0696128285332247,-0.39889134919505,-0.39889134919505,-0.39889134919505,-0.39889134919505,-0.39889134919505,-0.39889134919505,-0.444539216978962,-0.444539216978962,-0.444539216978962,-0.444539216978962,-0.444539216978962,-0.2233542221579109,-0.2233542221579109,-0.2233542221579109,-0.2466158998413223,-0.2466158998413223,-0.2466158998413223,-0.2466158998413223,-0.3815243874636156,-0.3815243874636156,-0.3815243874636156,-0.3815243874636156,-0.1390892302523436,-0.1390892302523436,-0.1390892302523436,-0.1390892302523436,-0.1345290668888187,-0.1345290668888187,-0.3105588607247384,-0.3105588607247384,-0.3105588607247384,-0.3196116408142373,-0.3196116408142373,-0.3196116408142373,-0.3196116408142373,-0.3196116408142373,-0.3196116408142373,-0.2186412364441922,-0.2186412364441922,-0.2186412364441922,-0.2927001898772618,-0.2927001898772618,-0.2927001898772618,-0.2927001898772618,-0.2927001898772618,-0.2323088335634464,-0.2323088335634464,-0.2323088335634464,-0.2323088335634464,-0.0009605649762241446,-0.0009605649762241446,-0.0009605649762241446,-0.0009605649762241446,0.004583450039903429,0.004583450039903429,0.004583450039903429,0.004583450039903429,-0.4116531531498333,-0.4116531531498333,-0.4116531531498333,-0.4116531531498333,-0.2141653812467637,-0.2141653812467637,-0.2141653812467637,-0.18779200907468,-0.18779200907468,-0.3397543765709528,-0.3397543765709528,-0.3397543765709528,-0.4281242910757501,-0.4281242910757501,-0.4281242910757501,-0.4281242910757501,-0.1713833828878258,-0.1713833828878258,-0.1713833828878258,-0.0320482489829944,-0.0320482489829944,-0.3698833680887218,-0.3698833680887218,-0.3698833680887218,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08968464097362239,0.08898081874054599,0.08898081874054599,0.08898081874054599,0.05172493323653626,0.05172493323653626,-0.4079569065233067,-0.4079569065233067,-0.4079569065233067,-0.002042808188775181,-0.002042808188775181,-0.002042808188775181,-0.002042808188775181,-0.002042808188775181,-0.1775376744839149,-0.1775376744839149,-0.1775376744839149,-0.1775376744839149,-0.2200118602002898,-0.2200118602002898,-0.2200118602002898,-0.3708120848162561,-0.3708120848162561,0.002013974609430452,0.002013974609430452,0.002013974609430452,0.05948741135935443,0.05948741135935443,0.05948741135935443,-0.4371271006103037,-0.4371271006103037,-0.4371271006103037,-0.2374428625859227,-0.2374428625859227,-0.2374428625859227,-0.211743154972651,-0.211743154972651,-0.06247726925002173,-0.06247726925002173,-0.06247726925002173,0.08799407970363678,0.08799407970363678,0.08799407970363678,0.08799407970363678,0.008056288790887649,0.008056288790887649,-0.2387892698756871,-0.2387892698756871,-0.2387892698756871,0.006039147045189257,0.006039147045189257,0.006039147045189257,0.006039147045189257,-0.2711950323401118,-0.2711950323401118,0.02413612680767954,0.02413612680767954,-0.221771106813533,-0.221771106813533,-0.221771106813533,-0.1979785134331075,-0.1979785134331075,-0.1979785134331075,0.02322780648504878,0.02322780648504878,0.02322780648504878,-0.02470993932328051,-0.02470993932328051,-0.00667502761069151,-0.00667502761069151,-0.00667502761069151,0.0118765761903012,0.0118765761903012,-0.001822526075698359,-0.001822526075698359,-0.001822526075698359,0.08089988438698423,0.08089988438698423,0.08089988438698423,-0.05967841053391862,-0.05967841053391862,-0.01308153531785448,-0.01308153531785448,-0.01308153531785448,-0.01308153531785448,0.009258544843208668,0.009258544843208668,-0.02586946964538973,-0.02586946964538973,-0.02586946964538973,-0.01877423935583357,-0.01877423935583357,-0.002970105858530915,-0.002970105858530915,-0.03001924170968735,-0.03001924170968735,-0.03001924170968735,-0.0197148770889412,-0.0197148770889412,-0.04275309012628752,-0.04275309012628752,0.1191415669900646,0.1191415669900646,0.1082267304636644,0.1082267304636644,0.04379910675593517,0.04379910675593517,0.0172781852457565,0.0172781852457565,0.0172781852457565,-0.01366171036226532,-0.01366171036226532,-0.3669255036366859,-0.3669255036366859,-0.3669255036366859,0.02852161179592971,0.02852161179592971,-0.02564853660863601,-0.02564853660863601,-0.02564853660863601,-0.02564853660863601,-0.3318397739576032,-0.3318397739576032,0.02082000159049377,0.02082000159049377,0.006493032042861586,0.006493032042861586,0.01973155956677793,0.01973155956677793,0.08716319410210435,0.08716319410210435,-0.2426143252272655,-0.2426143252272655,-0.2426143252272655,-0.2426143252272655,-0.09657079096103852,0.02496229901194688,0.02496229901194688,-0.1621572901098008,-0.1621572901098008,-0.02990897436037907,-0.3884499261689205,-0.3884499261689205,0.05923435753107108,0.05923435753107108,-0.3844661948826952,-0.3844661948826952,-0.3844661948826952,-0.3844661948826952,-0.3844661948826952,-0.3844661948826952,-0.1304679349187212,-0.1304679349187212,-0.06791314886628944,-0.06791314886628944,-0.2011200107016902,-0.2011200107016902,-0.2011200107016902,-0.2011200107016902,-0.224860458921314,-0.224860458921314,-0.3844661948826952],6,null,null,{"interactive":true,"className":"","stroke":false,"color":["#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#00FF00","#BEBEBE","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#0000FF","#BEBEBE","#0000FF","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#FFA500","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#0000FF","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#A52A2A","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#A52A2A","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#A52A2A","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#00FF00","#BEBEBE","#00FF00","#A52A2A","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE"],"weight":5,"opacity":0.5,"fill":true,"fillColor":["#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#00FF00","#BEBEBE","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#0000FF","#BEBEBE","#0000FF","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#FFA500","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#0000FF","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#A52A2A","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#A52A2A","#00FF00","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#A52A2A","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#A52A2A","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#A52A2A","#BEBEBE","#00FF00","#BEBEBE","#BEBEBE","#BEBEBE","#BEBEBE","#0000FF","#BEBEBE","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#BEBEBE","#00FF00","#00FF00","#BEBEBE","#00FF00","#A52A2A","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#0000FF","#BEBEBE","#A52A2A","#BEBEBE","#BEBEBE","#BEBEBE"],"fillOpacity":1},null,null,["<b>Chadwell Heath Academy<\/b><br/>Grade: other","<b>Chadwell Heath Academy<\/b><br/>Grade: other","<b>Chadwell Heath Academy<\/b><br/>Grade: requires improvement","<b>Queensmead School<\/b><br/>Grade: other","<b>Queensmead School<\/b><br/>Grade: good","<b>Wood End Primary School<\/b><br/>Grade: other","<b>Wood End Primary School<\/b><br/>Grade: requires improvement","<b>Wood End Primary School<\/b><br/>Grade: other","<b>Wood End Primary School<\/b><br/>Grade: good","<b>Wood End Primary School<\/b><br/>Grade: other","<b>Wood End Primary School<\/b><br/>Grade: requires improvement","<b>Stratford School Academy<\/b><br/>Grade: other","<b>Stratford School Academy<\/b><br/>Grade: good","<b>Stratford School Academy<\/b><br/>Grade: other","<b>Stratford School Academy<\/b><br/>Grade: other","<b>The Palmer Catholic Academy<\/b><br/>Grade: other","<b>The Palmer Catholic Academy<\/b><br/>Grade: good","<b>The Palmer Catholic Academy<\/b><br/>Grade: other","<b>The Palmer Catholic Academy<\/b><br/>Grade: other","<b>The London Oratory School<\/b><br/>Grade: other","<b>The London Oratory School<\/b><br/>Grade: outstanding","<b>Rooks Heath School<\/b><br/>Grade: other","<b>Rooks Heath School<\/b><br/>Grade: outstanding","<b>Rooks Heath School<\/b><br/>Grade: good","<b>Rooks Heath School<\/b><br/>Grade: other","<b>Drayton Manor High School<\/b><br/>Grade: other","<b>Drayton Manor High School<\/b><br/>Grade: outstanding","<b>Drayton Manor High School<\/b><br/>Grade: other","<b>Drayton Manor High School<\/b><br/>Grade: outstanding","<b>The St Marylebone CofE School<\/b><br/>Grade: other","<b>The St Marylebone CofE School<\/b><br/>Grade: outstanding","<b>The New North Academy<\/b><br/>Grade: good","<b>The New North Academy<\/b><br/>Grade: other","<b>The New North Academy<\/b><br/>Grade: good","<b>The New North Academy<\/b><br/>Grade: good","<b>Bishop Ramsey Church of England School<\/b><br/>Grade: other","<b>Bishop Ramsey Church of England School<\/b><br/>Grade: other","<b>Bishop Ramsey Church of England School<\/b><br/>Grade: requires improvement","<b>Bishop Ramsey Church of England School<\/b><br/>Grade: other","<b>The Ursuline Academy Ilford<\/b><br/>Grade: other","<b>The Ursuline Academy Ilford<\/b><br/>Grade: good","<b>The Ursuline Academy Ilford<\/b><br/>Grade: other","<b>The Ursuline Academy Ilford<\/b><br/>Grade: other","<b>Oasis Academy Johanna<\/b><br/>Grade: other","<b>Oasis Academy Johanna<\/b><br/>Grade: other","<b>Oasis Academy Johanna<\/b><br/>Grade: good","<b>Oasis Academy Johanna<\/b><br/>Grade: other","<b>Oasis Academy Johanna<\/b><br/>Grade: other","<b>Clapton Girls' Academy<\/b><br/>Grade: other","<b>Clapton Girls' Academy<\/b><br/>Grade: outstanding","<b>Clapton Girls' Academy<\/b><br/>Grade: outstanding","<b>Twyford Church of England High School<\/b><br/>Grade: other","<b>Twyford Church of England High School<\/b><br/>Grade: outstanding","<b>Twyford Church of England High School<\/b><br/>Grade: outstanding","<b>Highams Park School<\/b><br/>Grade: other","<b>Highams Park School<\/b><br/>Grade: good","<b>Highams Park School<\/b><br/>Grade: other","<b>Highams Park School<\/b><br/>Grade: other","<b>Highams Park School<\/b><br/>Grade: good","<b>William Tyndale Primary School<\/b><br/>Grade: other","<b>William Tyndale Primary School<\/b><br/>Grade: outstanding","<b>William Tyndale Primary School<\/b><br/>Grade: other","<b>William Tyndale Primary School<\/b><br/>Grade: other","<b>Vyners School<\/b><br/>Grade: other","<b>Vyners School<\/b><br/>Grade: satisfactory","<b>Vyners School<\/b><br/>Grade: good","<b>Vyners School<\/b><br/>Grade: other","<b>Vyners School<\/b><br/>Grade: outstanding","<b>Redriff Primary, City of London Academy<\/b><br/>Grade: other","<b>Redriff Primary, City of London Academy<\/b><br/>Grade: outstanding","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: inadequate","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: requires improvement","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: good","<b>The Willows School<\/b><br/>Grade: other","<b>The Willows School<\/b><br/>Grade: other","<b>Sir William Burrough Primary School<\/b><br/>Grade: other","<b>Sir William Burrough Primary School<\/b><br/>Grade: requires improvement","<b>Mulberry Academy Shoreditch<\/b><br/>Grade: other","<b>Mulberry Academy Shoreditch<\/b><br/>Grade: outstanding","<b>Mulberry Academy Shoreditch<\/b><br/>Grade: good","<b>Barnhill Community High School<\/b><br/>Grade: good","<b>Barnhill Community High School<\/b><br/>Grade: other","<b>Barnhill Community High School<\/b><br/>Grade: other","<b>Barnhill Community High School<\/b><br/>Grade: other","<b>Barnhill Community High School<\/b><br/>Grade: other","<b>Barnhill Community High School<\/b><br/>Grade: outstanding","<b>The Douay Martyrs Catholic School<\/b><br/>Grade: other","<b>The Douay Martyrs Catholic School<\/b><br/>Grade: good","<b>The Douay Martyrs Catholic School<\/b><br/>Grade: other","<b>The Douay Martyrs Catholic School<\/b><br/>Grade: good","<b>The Douay Martyrs Catholic School<\/b><br/>Grade: other","<b>Sacred Heart High School<\/b><br/>Grade: other","<b>Sacred Heart High School<\/b><br/>Grade: outstanding","<b>Sacred Heart High School<\/b><br/>Grade: other","<b>Saint Claudine's Catholic School for Girls<\/b><br/>Grade: other","<b>Saint Claudine's Catholic School for Girls<\/b><br/>Grade: good","<b>Saint Claudine's Catholic School for Girls<\/b><br/>Grade: other","<b>Saint Claudine's Catholic School for Girls<\/b><br/>Grade: other","<b>Grangewood School<\/b><br/>Grade: other","<b>Grangewood School<\/b><br/>Grade: outstanding","<b>Grangewood School<\/b><br/>Grade: requires improvement","<b>Grangewood School<\/b><br/>Grade: good","<b>Westminster City School<\/b><br/>Grade: other","<b>Westminster City School<\/b><br/>Grade: good","<b>Westminster City School<\/b><br/>Grade: other","<b>Westminster City School<\/b><br/>Grade: other","<b>The Grey Coat Hospital<\/b><br/>Grade: other","<b>The Grey Coat Hospital<\/b><br/>Grade: outstanding","<b>Wembley High Technology College<\/b><br/>Grade: other","<b>Wembley High Technology College<\/b><br/>Grade: other","<b>Wembley High Technology College<\/b><br/>Grade: outstanding","<b>Sudbury Primary School<\/b><br/>Grade: other","<b>Sudbury Primary School<\/b><br/>Grade: other","<b>Sudbury Primary School<\/b><br/>Grade: requires improvement","<b>Sudbury Primary School<\/b><br/>Grade: other","<b>Sudbury Primary School<\/b><br/>Grade: good","<b>Sudbury Primary School<\/b><br/>Grade: other","<b>Queens Park Community School<\/b><br/>Grade: other","<b>Queens Park Community School<\/b><br/>Grade: other","<b>Queens Park Community School<\/b><br/>Grade: other","<b>Alperton Community School<\/b><br/>Grade: other","<b>Alperton Community School<\/b><br/>Grade: requires improvement","<b>Alperton Community School<\/b><br/>Grade: other","<b>Alperton Community School<\/b><br/>Grade: good","<b>Alperton Community School<\/b><br/>Grade: other","<b>Ark Bentworth Primary Academy<\/b><br/>Grade: other","<b>Ark Bentworth Primary Academy<\/b><br/>Grade: good","<b>Ark Bentworth Primary Academy<\/b><br/>Grade: other","<b>Ark Bentworth Primary Academy<\/b><br/>Grade: other","<b>Barclay Primary School<\/b><br/>Grade: other","<b>Barclay Primary School<\/b><br/>Grade: other","<b>Barclay Primary School<\/b><br/>Grade: outstanding","<b>Barclay Primary School<\/b><br/>Grade: other","<b>Connaught School for Girls<\/b><br/>Grade: other","<b>Connaught School for Girls<\/b><br/>Grade: other","<b>Connaught School for Girls<\/b><br/>Grade: other","<b>Connaught School for Girls<\/b><br/>Grade: other","<b>Coteford Junior School<\/b><br/>Grade: other","<b>Coteford Junior School<\/b><br/>Grade: good","<b>Coteford Junior School<\/b><br/>Grade: other","<b>Coteford Junior School<\/b><br/>Grade: other","<b>Fulham Cross Girls' School and Language College<\/b><br/>Grade: other","<b>Fulham Cross Girls' School and Language College<\/b><br/>Grade: other","<b>Fulham Cross Girls' School and Language College<\/b><br/>Grade: good","<b>St George's Catholic School<\/b><br/>Grade: other","<b>St George's Catholic School<\/b><br/>Grade: outstanding","<b>Brentside Primary School<\/b><br/>Grade: other","<b>Brentside Primary School<\/b><br/>Grade: other","<b>Brentside Primary School<\/b><br/>Grade: good","<b>Charville Academy<\/b><br/>Grade: other","<b>Charville Academy<\/b><br/>Grade: requires improvement","<b>Charville Academy<\/b><br/>Grade: good","<b>Charville Academy<\/b><br/>Grade: good","<b>Gateway Academy<\/b><br/>Grade: other","<b>Gateway Academy<\/b><br/>Grade: other","<b>Gateway Academy<\/b><br/>Grade: good","<b>Old Ford Primary - A Paradigm Academy<\/b><br/>Grade: other","<b>Old Ford Primary - A Paradigm Academy<\/b><br/>Grade: outstanding","<b>Alexandra School<\/b><br/>Grade: other","<b>Alexandra School<\/b><br/>Grade: outstanding","<b>Alexandra School<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: inadequate","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: requires improvement","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: other","<b>St Aidan's Catholic Primary Academy<\/b><br/>Grade: good","<b>Loxford School<\/b><br/>Grade: other","<b>Loxford School<\/b><br/>Grade: other","<b>Loxford School<\/b><br/>Grade: outstanding","<b>Beal High School<\/b><br/>Grade: other","<b>Beal High School<\/b><br/>Grade: good","<b>Ruislip High School<\/b><br/>Grade: other","<b>Ruislip High School<\/b><br/>Grade: other","<b>Ruislip High School<\/b><br/>Grade: outstanding","<b>Whitefield School<\/b><br/>Grade: other","<b>Whitefield School<\/b><br/>Grade: inadequate","<b>Whitefield School<\/b><br/>Grade: outstanding","<b>Whitefield School<\/b><br/>Grade: other","<b>Whitefield School<\/b><br/>Grade: good","<b>Ormiston Beachcroft Academy<\/b><br/>Grade: other","<b>Ormiston Beachcroft Academy<\/b><br/>Grade: other","<b>Ormiston Beachcroft Academy<\/b><br/>Grade: other","<b>Ormiston Beachcroft Academy<\/b><br/>Grade: good","<b>Ormiston Latimer Academy<\/b><br/>Grade: other","<b>Ormiston Latimer Academy<\/b><br/>Grade: good","<b>Ormiston Latimer Academy<\/b><br/>Grade: other","<b>Heathland School<\/b><br/>Grade: other","<b>Heathland School<\/b><br/>Grade: good","<b>John F Kennedy Special School<\/b><br/>Grade: other","<b>John F Kennedy Special School<\/b><br/>Grade: outstanding","<b>John F Kennedy Special School<\/b><br/>Grade: other","<b>Sheringham Primary School<\/b><br/>Grade: other","<b>Sheringham Primary School<\/b><br/>Grade: other","<b>Sheringham Primary School<\/b><br/>Grade: outstanding","<b>Ryefield Primary School<\/b><br/>Grade: other","<b>Ryefield Primary School<\/b><br/>Grade: good","<b>Ryefield Primary School<\/b><br/>Grade: other","<b>Greenside Primary School<\/b><br/>Grade: other","<b>Greenside Primary School<\/b><br/>Grade: other","<b>Greenside Primary School<\/b><br/>Grade: other","<b>The Cardinal Vaughan Memorial RC School<\/b><br/>Grade: other","<b>The Cardinal Vaughan Memorial RC School<\/b><br/>Grade: outstanding","<b>Mossbourne Parkside Academy<\/b><br/>Grade: other","<b>Mossbourne Parkside Academy<\/b><br/>Grade: requires improvement","<b>Mossbourne Parkside Academy<\/b><br/>Grade: good","<b>Avanti Court Primary School<\/b><br/>Grade: other","<b>Avanti Court Primary School<\/b><br/>Grade: other","<b>Avanti Court Primary School<\/b><br/>Grade: other","<b>Avanti Court Primary School<\/b><br/>Grade: good","<b>Sarah Bonnell School<\/b><br/>Grade: other","<b>Sarah Bonnell School<\/b><br/>Grade: good","<b>Furness Primary School<\/b><br/>Grade: other","<b>Furness Primary School<\/b><br/>Grade: other","<b>Furness Primary School<\/b><br/>Grade: good","<b>Mayville Primary School<\/b><br/>Grade: other","<b>Mayville Primary School<\/b><br/>Grade: other","<b>Mayville Primary School<\/b><br/>Grade: requires improvement","<b>Mayville Primary School<\/b><br/>Grade: good","<b>Oakington Manor Primary School<\/b><br/>Grade: other","<b>Oakington Manor Primary School<\/b><br/>Grade: good","<b>Selwyn Primary School<\/b><br/>Grade: other","<b>Selwyn Primary School<\/b><br/>Grade: other","<b>Queen's Manor School and Special Needs Unit<\/b><br/>Grade: other","<b>Queen's Manor School and Special Needs Unit<\/b><br/>Grade: other","<b>Queen's Manor School and Special Needs Unit<\/b><br/>Grade: other","<b>Fulham Primary School<\/b><br/>Grade: other","<b>Fulham Primary School<\/b><br/>Grade: other","<b>Fulham Primary School<\/b><br/>Grade: outstanding","<b>Forest Gate Community School<\/b><br/>Grade: other","<b>Forest Gate Community School<\/b><br/>Grade: other","<b>Forest Gate Community School<\/b><br/>Grade: other","<b>St Paul's Way Trust School<\/b><br/>Grade: other","<b>St Paul's Way Trust School<\/b><br/>Grade: good","<b>Selwyn Primary School<\/b><br/>Grade: other","<b>Selwyn Primary School<\/b><br/>Grade: other","<b>Selwyn Primary School<\/b><br/>Grade: outstanding","<b>Davies Lane Primary School<\/b><br/>Grade: other","<b>Davies Lane Primary School<\/b><br/>Grade: outstanding","<b>Norlington School and 6th Form<\/b><br/>Grade: other","<b>Norlington School and 6th Form<\/b><br/>Grade: other","<b>Norlington School and 6th Form<\/b><br/>Grade: other","<b>Winston Way Academy<\/b><br/>Grade: other","<b>Winston Way Academy<\/b><br/>Grade: other","<b>Winston Way Academy<\/b><br/>Grade: good","<b>Mulberry School for Girls<\/b><br/>Grade: other","<b>Mulberry School for Girls<\/b><br/>Grade: outstanding","<b>Ian Mikardo School<\/b><br/>Grade: other","<b>Ian Mikardo School<\/b><br/>Grade: other","<b>Ian Mikardo School<\/b><br/>Grade: other","<b>Ian Mikardo School<\/b><br/>Grade: good","<b>Ranelagh Primary School<\/b><br/>Grade: other","<b>Ranelagh Primary School<\/b><br/>Grade: other","<b>Stebon Primary School<\/b><br/>Grade: other","<b>Stebon Primary School<\/b><br/>Grade: other","<b>Stebon Primary School<\/b><br/>Grade: outstanding","<b>Bygrove Primary School<\/b><br/>Grade: other","<b>Bygrove Primary School<\/b><br/>Grade: outstanding","<b>St Mary's CofE Primary School<\/b><br/>Grade: other","<b>St Mary's CofE Primary School<\/b><br/>Grade: other","<b>St Saviour's Church of England Primary School<\/b><br/>Grade: other","<b>St Saviour's Church of England Primary School<\/b><br/>Grade: other","<b>St Saviour's Church of England Primary School<\/b><br/>Grade: outstanding","<b>The Clara Grant Primary School<\/b><br/>Grade: other","<b>The Clara Grant Primary School<\/b><br/>Grade: other","<b>Mulberry Stepney Green Mathematics and Computing College<\/b><br/>Grade: other","<b>Mulberry Stepney Green Mathematics and Computing College<\/b><br/>Grade: other","<b>Newbridge School<\/b><br/>Grade: other","<b>Newbridge School<\/b><br/>Grade: other","<b>Farnham Green Primary School<\/b><br/>Grade: other","<b>Farnham Green Primary School<\/b><br/>Grade: good","<b>Ray Lodge Primary School<\/b><br/>Grade: other","<b>Ray Lodge Primary School<\/b><br/>Grade: other","<b>Earlham Primary School<\/b><br/>Grade: other","<b>Earlham Primary School<\/b><br/>Grade: other","<b>Earlham Primary School<\/b><br/>Grade: outstanding","<b>George Mitchell School<\/b><br/>Grade: other","<b>George Mitchell School<\/b><br/>Grade: good","<b>Dormers Wells High School<\/b><br/>Grade: other","<b>Dormers Wells High School<\/b><br/>Grade: other","<b>Dormers Wells High School<\/b><br/>Grade: other","<b>Elmhurst Primary School<\/b><br/>Grade: other","<b>Elmhurst Primary School<\/b><br/>Grade: outstanding","<b>Lammas School<\/b><br/>Grade: other","<b>Lammas School<\/b><br/>Grade: inadequate","<b>Lammas School<\/b><br/>Grade: other","<b>Lammas School<\/b><br/>Grade: requires improvement","<b>St George's Primary Catholic Voluntary Academy<\/b><br/>Grade: other","<b>St George's Primary Catholic Voluntary Academy<\/b><br/>Grade: outstanding","<b>Woodford Green Primary School<\/b><br/>Grade: other","<b>Woodford Green Primary School<\/b><br/>Grade: other","<b>St Francis' Catholic Primary School<\/b><br/>Grade: other","<b>St Francis' Catholic Primary School<\/b><br/>Grade: other","<b>Our Lady of Lourdes RC Primary School<\/b><br/>Grade: other","<b>Our Lady of Lourdes RC Primary School<\/b><br/>Grade: other","<b>SS Peter and Paul's Catholic Primary School<\/b><br/>Grade: other","<b>SS Peter and Paul's Catholic Primary School<\/b><br/>Grade: other","<b>Ormiston Queensmill Academy<\/b><br/>Grade: other","<b>Ormiston Queensmill Academy<\/b><br/>Grade: inadequate","<b>Ormiston Queensmill Academy<\/b><br/>Grade: other","<b>Ormiston Queensmill Academy<\/b><br/>Grade: good","<b>Charles Dickens Primary School<\/b><br/>Grade: other","<b>St Antony's Catholic Primary School<\/b><br/>Grade: other","<b>St Antony's Catholic Primary School<\/b><br/>Grade: other","<b>St Joseph's Catholic Primary School<\/b><br/>Grade: other","<b>St Joseph's Catholic Primary School<\/b><br/>Grade: outstanding","<b>Cyril Jackson Primary School<\/b><br/>Grade: other","<b>Field End Junior School<\/b><br/>Grade: other","<b>Field End Junior School<\/b><br/>Grade: good","<b>St Winefride's RC Primary School<\/b><br/>Grade: other","<b>St Winefride's RC Primary School<\/b><br/>Grade: good","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: other","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: good","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: good","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: other","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: good","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: requires improvement","<b>Millbank Academy Closed<\/b><br/>Grade: other","<b>Millbank Academy Closed<\/b><br/>Grade: outstanding","<b>St Michael's Catholic College Closed<\/b><br/>Grade: other","<b>St Michael's Catholic College Closed<\/b><br/>Grade: outstanding","<b>Holland Park School Closed<\/b><br/>Grade: other","<b>Holland Park School Closed<\/b><br/>Grade: outstanding","<b>Holland Park School Closed<\/b><br/>Grade: other","<b>Holland Park School Closed<\/b><br/>Grade: inadequate","<b>Lena Gardens Primary School Closed<\/b><br/>Grade: other","<b>Lena Gardens Primary School Closed<\/b><br/>Grade: other","<b>The Moriah Jewish Day School Closed<\/b><br/>Grade: other"],null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]},{"method":"addLegend","args":[{"colors":["#BEBEBE","#A52A2A","#A52A2A","#FFA500","#00FF00","#0000FF"],"labels":["other","requires improvement","inadequate","satisfactory","good","outstanding"],"na_color":null,"na_label":"NA","opacity":1,"position":"bottomright","type":"factor","title":"Ofsted Grade","extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[51.47984293225798,51.69368635497796],"lng":[-0.4620862980141459,0.1191415669900646]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
